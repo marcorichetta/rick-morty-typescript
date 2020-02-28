@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useContext } from "react";
+import "./App.css";
+import { Store } from "./Store";
+import { Switch, Route, Link } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import FavoritesPage from "./pages/FavoritesPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App(): JSX.Element {
+	const { state } = useContext(Store);
+
+	return (
+		<Fragment>
+			<header className="header">
+				<div>
+					<h1>Rick and Morty Episode Picker</h1>
+					<p>Favorite episode(s)</p>
+				</div>
+				<div>
+					<Link to="/">Home</Link>
+					<Link to="/favorites">Favorites: {state.favorites.length}</Link>
+				</div>
+			</header>
+			<Switch>
+				<Route path="/favorites">
+					<FavoritesPage />
+				</Route>
+				<Route path="/">
+					<HomePage />
+				</Route>
+			</Switch>
+		</Fragment>
+	);
 }
-
-export default App;
