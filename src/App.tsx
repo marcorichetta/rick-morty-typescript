@@ -13,11 +13,14 @@ export default function App(): JSX.Element {
 			<header className="header">
 				<div>
 					<h1>Rick and Morty Episode Picker</h1>
-					<p>Favorite episode(s)</p>
-				</div>
-				<div>
-					<Link to="/">Home</Link>
-					<Link to="/favorites">Favorites: {state.favorites.length}</Link>
+					<div>
+						<Link style={{ padding: "10px" }} to="/">
+							Home
+						</Link>
+						<Link style={{ padding: "10px" }} to="/favorites">
+							Favorites: {state.favorites.length}
+						</Link>
+					</div>
 				</div>
 			</header>
 			<Switch>

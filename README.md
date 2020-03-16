@@ -1,44 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rick & Morty Episode viewer
 
-## Available Scripts
+This is a small app, part of this Udemy [course](https://www.udemy.com/course/typescript-with-react-hooks-and-context/), that lets you see and like episodes from the show Rick & Morty.
 
-In the project directory, you can run:
+It's made with **Typescript** and **React**, making use of Hooks and Context.
 
-### `yarn start`
+To run it:
 
-Runs the app in the development mode.<br />
+```bash
+git clone https://github.com/marcorichetta/rick-morty-typescript.git
+
+cd rick-morty-typescript
+
+yarn start
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## /src contents
 
-### `yarn test`
+### `App.tsx`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The main component which renders the header and uses a `Switch` to route to the pages defined on `/pages`.
 
-### `yarn build`
+### Components
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Presentational component to define the list of episodes brought from the API.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Pages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The pages that display the list of episodes and the favorite ones.
 
-### `yarn eject`
+### `actions.tsx`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+It contains 2 functions:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   `fetchData`: Used on `useEffect` hook to gather the episodes from the API after the homepage is rendered.
+-   `toggleFavorite`: An action to like/dislike an episode when you click the '+1' button.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `interfaces.tsx`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+It contains the different types of data used in this application. It's one of the main advantages of using Typescript.
 
-## Learn More
+### `Store.tsx`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+It uses `Context` and `reducer` to manage how data flow based on actions, and by that, the state of our application.

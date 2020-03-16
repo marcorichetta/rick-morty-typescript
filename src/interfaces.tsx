@@ -1,8 +1,8 @@
-export type Dispatch = React.Dispatch<IAction>
+export type Dispatch = React.Dispatch<IAction>;
 
 export interface IState {
 	episodes: Array<IEpisode>; // Array of IEpisodes
-	favorites: Array<IEpisode>; // Array of any objects with no specified length
+	favorites: Array<IEpisode> | any; // Array of any objects with no specified length
 }
 
 export interface IAction {

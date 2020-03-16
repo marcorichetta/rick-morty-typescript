@@ -27,3 +27,7 @@ body {
   position: sticky;
   top: 0;
 }
+
+.navbar {
+  display: grid;
+}
